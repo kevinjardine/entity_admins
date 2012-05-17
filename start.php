@@ -11,6 +11,7 @@ function entity_admins_init() {
 
 function entity_admins_manage_admins($event, $object_type, $object) {
 	if (get_input('entity-admins-support') && $object) {
+		remove_entity_relationships($object->guid, 'entity_admin_for', TRUE);
 		// currently the userpicker name is hardcoded to "members"
 		$members = get_input('members');
 		if ($members) {
